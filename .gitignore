@@ -1,0 +1,9 @@
+_deps
+_skbuild
+.pytest_cache
+build
+cmake-build-debug
+rgi_interp_python.egg-info
+CMakeFiles
+.idea
+*.pyc
