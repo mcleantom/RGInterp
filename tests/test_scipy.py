@@ -55,7 +55,7 @@ class TestScipyExample(TestCase):
         z_test = np.linspace(7, 9, N)
         test_points = np.vstack((x_test, y_test, z_test)).T
 
-        n_starts = 1
+        n_starts = 10
         scipy_timer = Timer(lambda: scipy_rgi(test_points)).timeit(number=n_starts)
         rgi_interp_timer = Timer(lambda: rgi_interp.interpolate(x_test, y_test, z_test)).timeit(number=n_starts)
 

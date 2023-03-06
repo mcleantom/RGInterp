@@ -29,6 +29,11 @@ TEST(Interpolator3D, ScipyExample)
     ASSERT_FLOAT_EQ(interpolator.interpolate(0, 0, 0), std::numeric_limits<float>::infinity());
     ASSERT_FLOAT_EQ(interpolator.interpolate(1, 4, 7), data(0, 0, 0));
     ASSERT_FLOAT_EQ(interpolator.interpolate(4, 7, 9), data(10, 21, 32));
+
+    auto res = interpolator.interpolate({2.1, 3.3}, {6.2, 5.2}, {8.3, 7.1});
+    ASSERT_EQ(res.size(), 2);
+    ASSERT_FLOAT_EQ(res[0], 125.8047);
+    ASSERT_FLOAT_EQ(res[1], 146.3007);
 }
 
 std::vector<float> linspace(float start, float end, size_t points)
@@ -66,5 +71,5 @@ TEST(Interpolator3D, Speed)
     auto res = interpolator.interpolate(x, y, z);
     auto end = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end-start);
-    std::cout << duration.count() << "s" << std::endl;
+    std::cout << duration.count() * 1e-6 << "s" << std::endl;
 }

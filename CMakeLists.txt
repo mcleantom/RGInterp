@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.24)
 project(RGInterp)
-
+set(CMAKE_CXX_FLAGS_DEBUG "-g")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 set(CMAKE_CXX_STANDARD 17)
 
 message(STATUS "Getting Eigen3")
@@ -11,8 +12,8 @@ FetchContent_Declare(
         GIT_TAG master
         GIT_SHALLOW TRUE
         GIT_PROGRESS TRUE
-        FIND_PACKAGE_ARGS NAMES Eigen
-        PREFIX ${RoutingLIB_DEPENDENCY_DIR}
+#        FIND_PACKAGE_ARGS NAMES Eigen
+#        PREFIX ${RoutingLIB_DEPENDENCY_DIR}
         SYSTEM ON
 )
 FETCHCONTENT_MAKEAVAILABLE(Eigen)

@@ -26,8 +26,6 @@ void dispatch(const Lambda &worker, size_t size, size_t num_threads) noexcept {
         num_threads = std::thread::hardware_concurrency();
     }
 
-    std::cout << "NUM THREADS: " << num_threads << std::endl;
-
     // List of threads responsible for parallelizing the calculation
     std::vector<std::thread> threads(num_threads);
 

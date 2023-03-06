@@ -24,7 +24,7 @@ target_link_libraries(
         RGInterp
 )
 
-target_compile_options(RGInterp_unittests PRIVATE -fprofile-arcs -ftest-coverage -O0)
+#target_compile_options(RGInterp_unittests PRIVATE -fprofile-arcs -ftest-coverage -O3)
 
 gtest_discover_tests(RGInterp_unittests)
 
